@@ -19,7 +19,7 @@ public class UserClient {
     @GetMapping
     public List<User> getUsers() {
         RestTemplate restTemplate = new RestTemplate();
-        String userResourceUrl = "http://localhost/api/user";
+        String userResourceUrl = "http://spring-microservice:9000/api/user";
         User[] response = restTemplate.getForObject(userResourceUrl, User[].class);
         return Arrays.asList(response);
     }
