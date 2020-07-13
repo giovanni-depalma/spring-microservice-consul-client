@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -16,10 +17,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequestMapping(path = "api/client")
 public class UserClient {
 
+    @Autowired
+    RestTemplate restTemplate;
+    
     @GetMapping
     public List<User> getUsers() {
-        RestTemplate restTemplate = new RestTemplate();
-        String userResourceUrl = "http://spring-microservice:9000/api/user";
+        String userResourceUrl = "http://training-service/api/user";
         User[] response = restTemplate.getForObject(userResourceUrl, User[].class);
         return Arrays.asList(response);
     }

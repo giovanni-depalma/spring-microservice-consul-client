@@ -1,5 +1,5 @@
 spring:
   application:
-    name: myService2
+    name: client
 server:
   port: 9001

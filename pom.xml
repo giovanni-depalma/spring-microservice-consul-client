@@ -9,13 +9,14 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.react-genova</groupId>
-	<artifactId>spring-microservice2</artifactId>
+	<artifactId>spring-microservice-consul-client</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-microservice2</name>
+	<name>spring-microservice consul client</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>14</java.version>
+		<spring-cloud.version>Hoxton.SR6</spring-cloud.version>
 	</properties>
 
 	<dependencies>
@@ -28,7 +29,17 @@
         	<groupId>org.springframework.boot</groupId>
         	<artifactId>spring-boot-devtools</artifactId>
         	<optional>true</optional>
-    	</dependency>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-consul-all</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 
 		
 		<dependency>
@@ -43,6 +54,18 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 
 	<build>
